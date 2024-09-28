@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.primerparcialdesarrollomovil.UserInfo.User
 import com.example.primerparcialdesarrollomovil.databinding.ActivityLoginBinding
@@ -29,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
             if (viewModel.login()) {
                 val userInfo = User("rgonzaleza", "rgonzaleza@gmail.com", "rgonzalesa", "123456789", 30)
                 val intent = Intent(this, User::class.java)
-                intent.putExtra("user", User)
+                intent.putExtra("user", userInfo)
                 startActivity(intent)
             } else {
                 Toast.makeText(this, "Fallo se sesion :(", Toast.LENGTH_SHORT).show()
